@@ -3,15 +3,36 @@ title: Scala, Learning FP By Terminology - Functor
 ---
 **Introduction**
 
-`functor`, who named lambda lambda? why did they call it lambda, is it simple or complex?
+`functor`, who named functor functor? why did they call it functor, is it simple or complex?
 
 In [Part 2](https://devatrest.blogspot.com/2017/07/scala-learning-by-understanding.html) we have discussed what lambda and map means, why they are named as so, how they are defined and work.  In this post we are going to move on and discuss more `FP` terminology.  Specifically the weird term `functor` and 
 
+**why named like this?**
 
+The philosopher Rudolf Carnap, has originated the word functor, mathematics has borrowed it from him.  Again we see a tight relationship between philosophy, mathematics, and functional programming.  Now he was interested in logical analysis and in linguistics. He coined the term functor.
+
+*functor* in linguistics is a *function word*
+
+So now we need to understand what a *function word* is in linguistics.
+
+according to [Wikipedia on function words](https://en.wikipedia.org/wiki/Function_word):
+
+>function words express grammatical relationships with other words within a sentence, or specify the attitude or mood of the speaker. They signal the structural relationships that words have to one another and are the glue that holds sentences together. Thus, they serve as important elements to the structures of sentences.[3]
+
+So we have many kind of words right? you konw noun, verbs, and now we also have "function words".
+
+Note from the above definition that: functors or function words express:
+
+1. **Relationships** with other words.
+1. **Attitude** or mood of the speaker.
+1. Signal strutural **Relationships** that words have to one another.
+1. **Glue** that holds sentences together.
+
+So functors represent releationships between words and glue sentences.  Now let's see what functor means in our context, Functional Programming that is.
 
 **functor**
 
-Well we are again not surprised that functor is a term coming from mathematics, let's see how wikipedia defines this mathematical term don't worry if you absolutely nothing from this definition we would get back to it, the definition is scary!
+Well we are again not surprised that functor to functional programming is a term coming from mathematics and to mathematics coming from philosophy/linguistics, let's see how wikipedia defines this mathematical term don't worry if you absolutely nothing from this definition we would get back to it, the definition is scary!
 
 [Functor math term by wikipedia definition](https://en.wikipedia.org/wiki/Functor)
 
@@ -192,27 +213,7 @@ object MyApp extends App {
   println("Lets do some mapping on some something: " + MySome("something..").map(_ * 4))
 }
 ```
-
-Now for the sake of completeness let's put out the whole code as one bulk:
-
-
-
-Now let's move on to define MySome
-
-**FP Impurity**
-
-As a final word I would like to talk about FP and impurity.
-
-I know that sounds like an oxymoron but FP has impurity why? because it's a cruel world, you have to do IO.  FP has no solution for that.  FP will tell you do your pure core as big as you can and wrap that impure stuff with IO, it won't turn it to pure sutff it just wraps it in IO.  FP tells you well if you cannot make this function pure at least tell us in it's signature it's impure.  We like function signatures in FP.
-
-Martin Odersky says [Questioning FP](https://webcache.googleusercontent.com/search?q=cache:Azjq01tGknsJ:https://groups.google.com/d/topic/scala-debate/xYlUlQAnkmE+&cd=2&hl=en&ct=clnk&gl=il)
-
->The IO monad does not make a function pure. It just makes it obvious
- that it's impure.
- 
- So there is no silver bullet, if you start usimg IOMonad it just going to make your explicitly say that they are impure.
- 
- 
+  
 **Conclusion**
 
-I think we have covered the basics terms here, `map`, `functor`, `lambda`, and discussed a little bit of impurity and how it goes along with FP.  Stay tuned for more items on our terminology list.
+Functor as weired and frightening as this name sounds is a very simple concept's mapping from one category to another, so functor require the map function to exist as simple as that. 
