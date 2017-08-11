@@ -25,7 +25,7 @@ Note from the above definition that: functors or function words express:
 
 1. **Relationships** with other words.
 1. **Attitude** or mood of the speaker.
-1. Signal strutural **Relationships** that words have to one another.
+1. Signal structural **Relationships** that words have to one another.
 1. **Glue** that holds sentences together.
 
 So functors represent releationships between words and glue sentences.  Now let's see what functor means in our context, Functional Programming that is.
