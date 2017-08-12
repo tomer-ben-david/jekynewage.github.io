@@ -48,10 +48,6 @@ class Functor f where
   fmap :: (a -> b) -> f a -> f b
 ```
 
-There is a very simple (I hope) and good depiction of functor at ["Professor Frisby's Mostly Adequate Guide to Functional Programming"](https://www.gitbook.com/book/drboolean/mostly-adequate-guide/details)
-
-![functor image](https://tinyurl.com/y9lk579o)
-
 so a Functor is just a class (type class but we didn't talk about it yet), so it's just a class with a single function! `fmap`.  This goes along extremely well with the fact that we said that functor is a type which has the function `map`.  But why `fmap` in our case and not `map` this is because we are referring here to the general case.  In our case here it's the definition of what a functor is, and it is any class which defines a function which takes a higher order function from `(a -> b)` from any a to any b. now the functor value `f a` when applied with the function `(a -> b)` evaluates to the functor value `f b` that's it.  If our `f` is an array it would simply be:
 
 Now you may ask, why do we have not only `f a` but also `f b`.  The reason is that the output or the *evaluation* of the map function as FP people like to call it, is also a functor, we talked about it when we explained the map function, the output or the evaluation is boxes in the same shape as the original data type.  And as the original data type was a functor (it had a map function), that means that the output data type is also a functor.  hurrah!
