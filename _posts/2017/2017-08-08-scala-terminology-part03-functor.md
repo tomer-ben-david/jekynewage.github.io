@@ -3,15 +3,42 @@ title: Scala, Learning FP By Terminology - Functor
 ---
 **Introduction**
 
-`functor`, who named lambda lambda? why did they call it lambda, is it simple or complex?
+`functor`, who named functor functor? why did they call it functor, is it simple or complex?
 
 In [Part 2](https://devatrest.blogspot.com/2017/07/scala-learning-by-understanding.html) we have discussed what lambda and map means, why they are named as so, how they are defined and work.  In this post we are going to move on and discuss more `FP` terminology.  Specifically the weird term `functor` and 
 
+**why named like this?**
 
+The philosopher Rudolf Carnap, has originated the word functor, mathematics has borrowed it from him.  Again we see a tight relationship between philosophy, mathematics, and functional programming.  Now he was interested in logical analysis and in linguistics. He coined the term functor.
+
+*functor* in linguistics is a *function word*
+
+So now we need to understand what a *function word* is in linguistics.
+
+according to [Wikipedia on function words](https://en.wikipedia.org/wiki/Function_word):
+
+>function words express grammatical relationships with other words within a sentence, or specify the attitude or mood of the speaker. They signal the structural relationships that words have to one another and are the glue that holds sentences together. Thus, they serve as important elements to the structures of sentences.[3]
+
+So we have many kind of words right? you konw noun, verbs, and now we also have "function words".
+
+Note from the above definition that: functors or function words express:
+
+1. **Relationships** with other words.
+1. **Attitude** or mood of the speaker.
+1. Signal structural **Relationships** that words have to one another.
+1. **Glue** that holds sentences together.
+
+So functors represent releationships between words and glue sentences.  Now let's see what functor means in our context, Functional Programming that is.
+
+so: 
+
+1. `function word`? --> too long
+1. `funcword`? --> too clumsy and mixing up in computer science context
+1. `functor` -> sounds cool and **sophisticated** this is what we want! 
 
 **functor**
 
-Well we are again not surprised that functor is a term coming from mathematics, let's see how wikipedia defines this mathematical term don't worry if you absolutely nothing from this definition we would get back to it, the definition is scary!
+Well we are again not surprised that functor to functional programming is a term coming from mathematics and to mathematics coming from philosophy/linguistics, let's see how wikipedia defines this mathematical term don't worry if you absolutely nothing from this definition we would get back to it, the definition is scary!
 
 [Functor math term by wikipedia definition](https://en.wikipedia.org/wiki/Functor)
 
@@ -47,6 +74,10 @@ More interestingly the book says that the best way to understand functor is simp
 class Functor f where
   fmap :: (a -> b) -> f a -> f b
 ```
+
+There is a very simple (I hope) and good depiction of functor at ["Professor Frisby's Mostly Adequate Guide to Functional Programming"](https://www.gitbook.com/book/drboolean/mostly-adequate-guide/details)
+
+![functor image](https://tinyurl.com/y9lk579o)
 
 so a Functor is just a class (type class but we didn't talk about it yet), so it's just a class with a single function! `fmap`.  This goes along extremely well with the fact that we said that functor is a type which has the function `map`.  But why `fmap` in our case and not `map` this is because we are referring here to the general case.  In our case here it's the definition of what a functor is, and it is any class which defines a function which takes a higher order function from `(a -> b)` from any a to any b. now the functor value `f a` when applied with the function `(a -> b)` evaluates to the functor value `f b` that's it.  If our `f` is an array it would simply be:
 
@@ -162,6 +193,8 @@ Lets do some mapping on some something: MySome(something..something..something..
 
 cool so we have MyNone and MySome! :)
 
+For the sake of completeness look at the below code:
+
 ```scala
 trait MyOption[+A] { // we hae + otherwise how would you be able to return the subtype MyOption[Nothing] it's nto MyNone[A]! + allows for children!
   def isBoxEmpty: Boolean
@@ -188,12 +221,12 @@ object MyApp extends App {
   println("Lets do some mapping on some something: " + MySome("something..").map(_ * 4))
 }
 ```
+  
+**Conclusion**
 
-Now for the sake of completeness let's put out the whole code as one bulk:
+Functor as weired and frightening as this name sounds is a very simple concept's mapping from one category to another, so functor require the map function to exist as simple as that.
 
 
-
-Now let's move on to define MySome
 
 **FP Impurity**
 
@@ -208,7 +241,3 @@ Martin Odersky says [Questioning FP](https://webcache.googleusercontent.com/sear
  
  So there is no silver bullet, if you start usimg IOMonad it just going to make your explicitly say that they are impure.
  
- 
-**Conclusion**
-
-I think we have covered the basics terms here, `map`, `functor`, `lambda`, and discussed a little bit of impurity and how it goes along with FP.  Stay tuned for more items on our terminology list.
