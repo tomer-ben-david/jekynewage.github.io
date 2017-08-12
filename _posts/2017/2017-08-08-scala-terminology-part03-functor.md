@@ -30,12 +30,6 @@ Note from the above definition that: functors or function words express:
 
 So functors represent releationships between words and glue sentences.  Now let's see what functor means in our context, Functional Programming that is.
 
-so: 
-
-1. `function word`? --> too long
-1. `funcword`? --> too clumsy and mixing up in computer science context
-1. `functor` -> sounds cool and **sophisticated** this is what we want! 
-
 **functor**
 
 Well we are again not surprised that functor to functional programming is a term coming from mathematics and to mathematics coming from philosophy/linguistics, let's see how wikipedia defines this mathematical term don't worry if you absolutely nothing from this definition we would get back to it, the definition is scary!
@@ -192,8 +186,6 @@ Lets do some mapping on some something: MySome(something..something..something..
 ```
 
 cool so we have MyNone and MySome! :)
-
-For the sake of completeness look at the below code:
 
 ```scala
 trait MyOption[+A] { // we hae + otherwise how would you be able to return the subtype MyOption[Nothing] it's nto MyNone[A]! + allows for children!
