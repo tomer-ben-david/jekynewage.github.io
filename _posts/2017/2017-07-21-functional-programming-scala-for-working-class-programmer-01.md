@@ -1,7 +1,8 @@
 ---
 title: Functional Programming in Scala for Working class programmer 01
+permalink: /scala-by-fp-terminology-introduction/
 ---
-**Introduction**
+# Scala FP By Terminology Root Cause Analysis
 
 Have you ever been to a scala conf and told yourself "I have no idea what this guy talks about?" did you look nervously around and see all people smiling saying "yeah that's obvious " only to get you even more nervous? . If so this post is for you, otherwise just skip it, you already know fp in scala ;)
 
