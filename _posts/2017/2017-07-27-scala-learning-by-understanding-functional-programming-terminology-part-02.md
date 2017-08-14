@@ -1,5 +1,6 @@
 ---
 title: Scala, learning by understanding Functional Programming Terminology part 2
+permalink: /scala-by-fp-terminology-lambda-map/
 ---
 **Introduction**
 

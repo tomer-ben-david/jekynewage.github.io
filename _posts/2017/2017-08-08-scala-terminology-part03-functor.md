@@ -1,5 +1,6 @@
 ---
 title: Scala, Learning FP By Terminology - Functor
+permalink: /scala-by-fp-terminology-functor/
 ---
 **Introduction**
 
