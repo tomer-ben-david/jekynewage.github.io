@@ -1,5 +1,5 @@
 ---
-title: Read Book: Learning Scala by FP Terminology
+title: Read Book - Learning Scala by FP Terminology
 permalink: /book-scala-by-fp-terminology/
 ---
 
