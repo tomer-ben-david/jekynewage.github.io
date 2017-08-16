@@ -46,7 +46,7 @@ It talks about monad and we didn't explain yet what monad is so for our purpose 
 
 Let's decompose it, you don't need to understand it all, just follow me:
 
-1. `>>=` - The name of our function it's going to be `>>=` and may i add `:)`.
+1. `>>=` - The name of our function it's going to be `>>=` and may i add `:[]`.
 1. `=>` - A class constraint meaning, `m` is a bloody `monad`.
 1. `m a -> (a -> m b) -> m b` - This is the body of our function
 1. `m a` - The argument to the function, we are going to take first an `m a` or a `monad of a`
@@ -55,6 +55,55 @@ Let's decompose it, you don't need to understand it all, just follow me:
 
 Now the book **[Learn You A Haskell For A Great Good](https://devatrest.blogspot.com.il/2017/08/book-review-learn-you-haskell-for-great.html)** moves on and says:
 
-> If we have a fancy value and a function that takes a normal value but re- turns a fancy value, how do we feed that fancy value into the function? This is the main concern when dealing with monads. We write m a instead of f a, because the m stands for Monad, but monads are just applicative functors that support >>=. The >>= function is called bind.
+> If we have a fancy value and a function that takes a normal value but reurns a fancy value, how do we feed that fancy value into the function? This is the main concern when dealing with monads. We write m a instead of f a, because the m stands for Monad, but monads are just applicative functors that support >>=. The >>= function is called bind.
 
-Let's explain
+What can we learn from it:
+
+1. fancy value - a monad, in our case `m a` a monad of `a`, it is indeed fancy.
+1. returns a fancy value - we see in the above declaration of `>>=` in haskell that the function evaluates to (last evaluation) to: `m b` this is a monad of b or in other words a fancy value! (moand of b)
+1. How do we feed a fancy value into the function.  Well let's first see what they mean by "the function", we had: `(>>=) :: (Monad m) => m a -> (a -> m b) -> m b` - it takes as first argument `m a` which is a fancy value, but then our function which we feed in the `m a` is `(a -> m b)` which means it does not take a fancy value it just takes an `a`.  So how do we feed in the fancy value `m a` into the function which takes a non fancy value `(a -> m b)`.
+
+The books continues to examine this and says:
+
+> When we have a normal value a and a normal function a -> b, it’s re- ally easy to feed the value to the function—we just apply the function to the value normally, and that’s it. But when we’re dealing with values that come with certain contexts, it takes a bit of thinking to see how these fancy values are fed to functions and how to take into account their behavior. But you’ll see that it’s as easy as one, two, three.
+
+What can we learn from this?
+
+1. I think the most important thing is that it calms us down it's saying: `But you’ll see that it’s as easy as one, two, three.`.
+1. The process of feeding the fancy value into a function which takes in a non fancy value is going to be what we are going to check.
+
+Why do we use these fancy objects such as `monad`, `box`, `magician hat`? the reason is that when we do functional programming we like `val's` and we hate `var's` .  We like immutable objects and we hate mutable stuff.  This really helps when you build the core of your application this way.  Ofcourse in the real world you do have some state, although as pure meditationists might say that the world and time is not a series of mutations but as series of immutable objects.  Einstein has shown that time does not exist as a real thing at least not as we usually think of it, he has called this dimension `space-time` and in this `space-time` we view objects as morphing, but from the meditative point of view the `stream` of events is just a stream and nothing is changing, the world as it's current presence is always a single immutable point and is replaced by the next single immutable point in one view and in another view, it all exists it's only the space-time dimention which makes us think that things change.
+
+Now, we use these fancy objects like `monads` in order to get over our base instinc to mutate objects in the world, they for one case allow us to carry a `context` and have that context for multiple operations to run without mutating any state.  Therefore `flatMap` allows us to carry out an operation with a context, this means **`flatMap` is really really the core of functional programing and not just flattening a map!**
+
+Now compare haskell flatMap:
+
+```haskell
+(>>=) :: (Monad m) => m a -> (a -> m b) -> m b
+```
+
+Is taking a `fancy` value and running a function over the non-fancy-value inside it (the `a`).
+
+to scala's flatMap signature:
+
+```scala
+def flatMap[B](f: (A) ⇒ BOX[B]): BOX[B]
+```
+
+Or the full signature of `flatMap` in scala for `List`
+
+```scala
+final def flatMap[B](f: (A) ⇒ GenTraversableOnce[B]): List[B] 
+```
+
+If you notice the signature we don't really see that the scala's `flatMap` takes a fancy value in or something like that.  Well as it turns out scala's flatMap is not a monadic bind, (the haskell notation is called a `monadic bind`).
+
+As it turns out scala's `flatMap` is more general than haskell's `>>=` monadic bind.
+
+In `haskell` the `>>=` bind requires the function we provide to generate a traversable type while the flatMap only requires that we can generate a traversable type from the output of the function so if you provide an implicit which can build a travesable type from the output like a list from an option than flatMap would work which takes us the the conclusion:
+
+> scala's flatMap is more general than haskell's bind >>=
+
+**Intuition for flatMap**
+
+We discussed some complexity about `flatMap` so I think it's time to rest and discuss the intuition behind the flatMap
