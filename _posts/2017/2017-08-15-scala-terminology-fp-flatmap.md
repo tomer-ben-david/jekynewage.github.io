@@ -107,3 +107,5 @@ In `haskell` the `>>=` bind requires the function we provide to generate a trave
 **Intuition for flatMap**
 
 We discussed some complexity about `flatMap` so I think it's time to rest and discuss the intuition behind the flatMap
+
+> Scala's bind for lists (shown above) is more general than Haskell's bind for lists. I am not comparing the general bind (Scala has no "general" bind, only classes which happen to have a flatMap, IIRC). In Haskell, we have a list-bind [a] -> (a -> [b]) -> [b] when in Scala it is more similar to [a] -> (a -> t b) -> [b] for a suitable t
