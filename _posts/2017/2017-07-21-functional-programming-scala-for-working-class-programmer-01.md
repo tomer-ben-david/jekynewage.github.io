@@ -41,7 +41,7 @@ Not for me, what are all those "Free", "lift", "pure", what are the generics doi
 
 **Haskell**
 
-I think if you want to learn scala you first need to learn haskell or something else and only then get to scala.   It looks like its very difficult to first get to these concepts by scala.  And yes when I need to learn a concept in scala guess what I first learn it in haskell and only then get to scala.  if haskell would only have all java libraries and run on jvm...
+I think if you want to learn scala you first need to learn haskell or something else and only then get to scala. It looks like its very difficult to first get to these concepts by scala. And yes when I need to learn a concept in scala and I find that it's problematic to grasp guess what I when all fails - I first check out how to work it out in haskell and how to get the concept in it, and only then get to scala. if haskell would only have all java libraries and run on jvm... During this series when there are concepts that I think haskell code is important to show to get better understanding of the term, we'll just do that.
 
 **FP is very important**
 
