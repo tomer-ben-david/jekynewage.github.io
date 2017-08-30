@@ -5,6 +5,10 @@ title: Startup Stack - tutorials, videos, books
 ## Domain names
 1. [https://tld-list.com/ - compare domain name renewal price](https://tld-list.com/)
 
+## Website/blog/...
+
+1. [awesome jekyll themes](https://github.com/planetjekyll/awesome-jekyll-themes)
+
 ## Payment, Subscription, ecommerce
 
 1. [https://gumroad.com](https://gumroad.com)
