@@ -11,6 +11,7 @@ title: Startup Stack - tutorials, videos, books
 
 ## Startuping and bootstraping
 
+
 1. [levels.io bootstraping](https://levels.io/bootstrapping/)
 1. [Many resources for startups](https://siftery.com)
 
@@ -37,6 +38,7 @@ title: Startup Stack - tutorials, videos, books
 
 ## Marketing and Bootstraping startup
 
+1. [prospect.io lead and email marketing](https://prospect.io)
 1. [Buffer multipost](https://buffer.com)
 1. [NinjaBlaster](http://ninjablaster.com/)
 2. [Hootsuite]()
